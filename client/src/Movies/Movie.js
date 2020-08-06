@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useParams } from 'react';
 import axios from 'axios';
 
 const Movie = (props) => {
   const [movie, setMovie] = useState();
+  //const params = useParams(); 
  
   useEffect(() => {
     const id = 1;
@@ -12,6 +13,7 @@ const Movie = (props) => {
        axios
         .get(`http://localhost:5000/api/movies/${id}`)
         .then(response => {
+          console.log(response)
           setMovie(response.data);
         })
         .catch(error => {
